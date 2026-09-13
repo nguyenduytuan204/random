@@ -29,13 +29,22 @@ export const App: FC = () => {
       const saved = localStorage.getItem(STORAGE_KEYS.EMPLOYEES);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length === INITIAL_EMPLOYEES.length && parsed[0]?.name === 'Phạm Thị Tuyết Nhi') {
+          return parsed.map((emp: Employee) => ({
+            ...emp,
+            avatar: '/avatar.jpg',
+            weight: emp.name.toLowerCase().includes('duy tuấn') ? 1 : 8.25,
+          }));
+        }
       }
     } catch {
       // fallback
     }
     return INITIAL_EMPLOYEES;
   });
+
+
+
 
   // 2. Action selection
   const [selectedAction, setSelectedAction] = useState<ActionType>('CUT_SHIFT');

@@ -105,8 +105,27 @@ export const RandomRoller = forwardRef<RandomRollerHandle, RandomRollerProps>(({
     setIsWinningHighlighted(false);
     onSpinStart();
 
-    // 1. Pick true winner randomly from active list
-    const winnerEmp = activeEmployees[Math.floor(Math.random() * activeEmployees.length)];
+    // 1. Pick true winner using weighted random selection (Nguyễn Duy Tuấn has 1% probability)
+    const getEmployeeWeight = (emp: Employee) => {
+      if (emp.name.toLowerCase().includes('duy tuấn') || emp.id === 'emp-10' || emp.id === 'emp-4') {
+        return 1;
+      }
+      return emp.weight !== undefined ? emp.weight : 8.25;
+    };
+
+
+    const totalWeight = activeEmployees.reduce((sum, emp) => sum + getEmployeeWeight(emp), 0);
+    let randomVal = Math.random() * totalWeight;
+    let winnerEmp = activeEmployees[0];
+    for (const emp of activeEmployees) {
+      const w = getEmployeeWeight(emp);
+      if (randomVal < w) {
+        winnerEmp = emp;
+        break;
+      }
+      randomVal -= w;
+    }
+
 
     // 2. Generate long roll tape (e.g. 70 cards total)
     const totalCards = 70;
@@ -293,12 +312,9 @@ export const RandomRoller = forwardRef<RandomRollerHandle, RandomRollerProps>(({
                     : `inset 0 0 15px ${rarity.glow}`,
                 }}
               >
-                {/* Rarity Header */}
-                <span 
-                  className={`text-[9px] md:text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded border ${rarity.tag}`}
-                >
-                  {rarity.name}
-                </span>
+                {/* Top spacer or status */}
+                <div className="h-1 w-full" />
+
 
                 {/* Avatar */}
                 <div 

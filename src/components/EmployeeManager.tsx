@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import type { FC, FormEvent, ChangeEvent } from 'react';
-import type { Employee, Rarity } from '../types';
+import type { Employee } from '../types';
 import { RARITY_COLORS } from '../data/initialEmployees';
 import { 
   X, 
@@ -34,7 +34,6 @@ export const EmployeeManager: FC<EmployeeManagerProps> = ({
 }) => {
   const [newName, setNewName] = useState('');
   const [newAvatar, setNewAvatar] = useState('');
-  const [newRarity, setNewRarity] = useState<Rarity>('classified');
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingName, setEditingName] = useState('');
 
@@ -57,11 +56,13 @@ export const EmployeeManager: FC<EmployeeManagerProps> = ({
       name: newName.trim(),
       avatar: avatarUrl,
       selected: true,
-      rarity: newRarity,
+      rarity: 'classified',
       order: employees.length + 1,
+      weight: 100,
     };
 
     onUpdateEmployees([...employees, newEmp]);
+
     setNewName('');
     setNewAvatar('');
     soundService.playTick(1.5);
@@ -240,7 +241,7 @@ export const EmployeeManager: FC<EmployeeManagerProps> = ({
               </div>
 
               {/* Image URL or Status */}
-              <div className="sm:col-span-3">
+              <div className="sm:col-span-4">
                 <input
                   type="text"
                   placeholder="Hoặc dán URL ảnh..."
@@ -250,24 +251,12 @@ export const EmployeeManager: FC<EmployeeManagerProps> = ({
                 />
               </div>
 
-              {/* Rarity Select */}
-              <div className="sm:col-span-3 flex gap-2">
-                <select
-                  value={newRarity}
-                  onChange={(e) => setNewRarity(e.target.value as Rarity)}
-                  className="w-full px-3 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 focus:outline-none"
-                >
-                  <option value="milspec">Mil-Spec (Lam)</option>
-                  <option value="restricted">Restricted (Tím)</option>
-                  <option value="classified">Classified (Hồng)</option>
-                  <option value="covert">Covert (Đỏ)</option>
-                  <option value="special">★ Special (Vàng)</option>
-                </select>
-
+              {/* Add Button */}
+              <div className="sm:col-span-2">
                 <button
                   type="submit"
                   disabled={!newName.trim()}
-                  className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-[0_0_15px_rgba(6,182,212,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shrink-0 cursor-pointer"
+                  className="w-full px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-[0_0_15px_rgba(6,182,212,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shrink-0 cursor-pointer"
                 >
                   Thêm
                 </button>
@@ -275,6 +264,7 @@ export const EmployeeManager: FC<EmployeeManagerProps> = ({
             </div>
           </form>
         </div>
+
 
         {/* Batch Actions & Counter */}
         <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-3 bg-slate-900/90 border-b border-slate-800">
@@ -401,14 +391,13 @@ export const EmployeeManager: FC<EmployeeManagerProps> = ({
                         >
                           {emp.name}
                         </span>
-                        <span className={`text-[9px] uppercase px-1.5 py-0.2 rounded border font-mono ${rarity.tag}`}>
-                          {rarity.name}
-                        </span>
                       </div>
                     )}
                     <span className="text-[11px] text-slate-500 block">
                       Thứ tự: #{index + 1} • {emp.selected ? 'Sẵn sàng quay' : 'Tạm tắt'}
                     </span>
+
+
                   </div>
                 </div>
 

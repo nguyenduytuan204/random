@@ -137,18 +137,8 @@ export const WinnerModal: FC<WinnerModalProps> = ({
               }}
             />
           </div>
-
-          <span 
-            className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[11px] font-bold uppercase font-mono tracking-wider border shadow-lg"
-            style={{ 
-              backgroundColor: '#090d16',
-              borderColor: rarity.accent,
-              color: rarity.accent
-            }}
-          >
-            {rarity.name}
-          </span>
         </div>
+
 
         {/* Winner Name */}
         <div className="mt-6 mb-3">

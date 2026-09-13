@@ -45,12 +45,8 @@ export const EmployeeCard: FC<EmployeeCardProps> = ({
         }}
       />
 
-      {/* Top row: Rarity tag & Checkbox */}
-      <div className="flex items-center justify-between mb-2 relative z-10">
-        <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded border ${rarity.tag}`}>
-          {rarity.name}
-        </span>
-
+      {/* Top row: Checkbox & Edit action */}
+      <div className="flex items-center justify-end mb-2 relative z-10">
         <div className="flex items-center gap-1.5">
           {onEdit && (
             <button
@@ -85,8 +81,8 @@ export const EmployeeCard: FC<EmployeeCardProps> = ({
           <div 
             className={`w-16 h-16 md:w-20 md:h-20 rounded-full p-[2px] transition-all duration-300 ${
               employee.selected 
-                ? 'ring-2 ring-offset-2 ring-offset-slate-950' 
-                : 'opacity-80 group-hover:opacity-100'
+                ? 'ring-2 ring-cyan-500/50 ring-offset-2 ring-offset-slate-950' 
+                : 'opacity-70 group-hover:opacity-100'
             }`}
             style={{
               borderColor: rarity.accent,
@@ -114,10 +110,14 @@ export const EmployeeCard: FC<EmployeeCardProps> = ({
           {employee.name}
         </h4>
 
-        <span className="text-[11px] font-mono text-slate-400 mt-0.5">
-          {employee.selected ? '🟢 Sẵn sàng' : '❌ Đã loại / Tắt'}
-        </span>
+        <div className="flex flex-col items-center gap-0.5 mt-0.5">
+          <span className="text-[11px] font-mono text-slate-400">
+            {employee.selected ? '🟢 Sẵn sàng' : '⚪ Đã quay trúng / Tắt'}
+          </span>
+        </div>
       </div>
+
+
 
 
       {/* Rarity Bottom Stripe */}

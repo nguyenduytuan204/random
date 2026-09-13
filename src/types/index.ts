@@ -7,7 +7,9 @@ export interface Employee {
   selected: boolean;
   rarity: Rarity;
   order: number;
+  weight?: number; // Tỉ lệ xuất hiện (mặc định 100, số càng nhỏ tỉ lệ trúng càng thấp)
 }
+
 
 export type ActionType = 'SUPPORT' | 'CUT_OFF' | 'CUT_SHIFT';
 
