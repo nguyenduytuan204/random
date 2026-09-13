@@ -1,10 +1,11 @@
 import type { Employee, ActionOption } from '../types';
+import avatarImg from '../assets/avatar.jpg';
 
 export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-1',
     name: 'Phạm Thị Tuyết Nhi',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'covert',
     order: 1,
@@ -13,7 +14,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-2',
     name: 'Phạm Thị Thúy Vi',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'classified',
     order: 2,
@@ -22,7 +23,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-3',
     name: 'Trương Thị Ngọc Ánh',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'restricted',
     order: 3,
@@ -31,7 +32,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-4',
     name: 'Huỳnh Hữu Lê',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'milspec',
     order: 4,
@@ -40,7 +41,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-5',
     name: 'Thiên Phát',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'milspec',
     order: 5,
@@ -49,7 +50,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-6',
     name: 'Vũ Hữu Thành Tài',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'classified',
     order: 6,
@@ -58,7 +59,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-7',
     name: 'Nguyễn Anh Vĩ',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'covert',
     order: 7,
@@ -67,7 +68,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-8',
     name: 'Hoàng Minh Đức',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'milspec',
     order: 8,
@@ -76,7 +77,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-9',
     name: 'Nguyễn Trường Huy',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'restricted',
     order: 9,
@@ -85,7 +86,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-10',
     name: 'Nguyễn Duy Tuấn',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'special',
     order: 10,
@@ -94,7 +95,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-11',
     name: 'Trương Anh Tuấn',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'milspec',
     order: 11,
@@ -103,7 +104,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-12',
     name: 'Bùi Duy Khôi',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'classified',
     order: 12,
@@ -112,7 +113,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: 'emp-13',
     name: 'Trần Tấn Phát',
-    avatar: '/avatar.jpg',
+    avatar: avatarImg,
     selected: true,
     rarity: 'covert',
     order: 13,
