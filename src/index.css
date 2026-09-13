@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #090c10;
+    --card-dark: #121824;
+    --border-dark: #222d42;
+  }
+
+  body {
+    background-color: #080b11;
+    color: #e2e8f0;
+    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    user-select: none;
+  }
+}
+
+/* Custom CS2 Neon & Glow */
+.glow-emerald {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.45), inset 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.glow-rose {
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.45), inset 0 0 15px rgba(244, 63, 94, 0.2);
+}
+
+.glow-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.45), inset 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.5), inset 0 0 15px rgba(6, 182, 212, 0.25);
+}
+
+/* Screen Shake Effect */
+@keyframes screenShake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  15% { transform: translate(-3px, 2px) rotate(-0.5deg); }
+  30% { transform: translate(3px, -2px) rotate(0.5deg); }
+  45% { transform: translate(-2px, -2px) rotate(0.3deg); }
+  60% { transform: translate(2px, 1px) rotate(-0.2deg); }
+  75% { transform: translate(-1px, 1px) rotate(0.1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-screenshake {
+  animation: screenShake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Flashbang / Golden victory flash */
+@keyframes victoryFlash {
+  0% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+.animate-victory-flash {
+  animation: victoryFlash 0.7s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+/* Pulsing Needle Laser */
+@keyframes laserPulse {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 6px #f59e0b) drop-shadow(0 0 12px #f59e0b); }
+  50% { opacity: 1; filter: drop-shadow(0 0 12px #f59e0b) drop-shadow(0 0 22px #ef4444); }
+}
+
+.animate-laser {
+  animation: laserPulse 1.4s ease-in-out infinite;
+}
+
+/* Subtle Carbon Grid Background */
+.bg-cs2-grid {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.4) 0%, transparent 70%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #253347;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
