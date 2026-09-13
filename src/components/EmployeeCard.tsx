@@ -66,7 +66,7 @@ export const EmployeeCard: FC<EmployeeCardProps> = ({
           <div
             className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-200 border ${
               employee.selected
-                ? 'bg-cyan-500 border-cyan-400 text-slate-950 shadow-[0_0_10px_rgba(6,182,212,0.8)]'
+                ? 'bg-orange-500 border-orange-400 text-slate-950 shadow-[0_0_10px_rgba(249,115,22,0.8)]'
                 : 'border-slate-700 bg-slate-900/80 text-transparent group-hover:border-slate-500'
             }`}
           >
@@ -81,7 +81,7 @@ export const EmployeeCard: FC<EmployeeCardProps> = ({
           <div 
             className={`w-16 h-16 md:w-20 md:h-20 rounded-full p-[2px] transition-all duration-300 ${
               employee.selected 
-                ? 'ring-2 ring-cyan-500/50 ring-offset-2 ring-offset-slate-950' 
+                ? 'ring-2 ring-orange-500/70 ring-offset-2 ring-offset-slate-950' 
                 : 'opacity-70 group-hover:opacity-100'
             }`}
             style={{
@@ -106,9 +106,10 @@ export const EmployeeCard: FC<EmployeeCardProps> = ({
         </div>
 
         {/* Employee Name */}
-        <h4 className="mt-2.5 text-center text-sm md:text-base font-bold text-slate-200 tracking-wide font-['Rajdhani',sans-serif] line-clamp-1 group-hover:text-cyan-300 transition-colors">
+        <h4 className="mt-2.5 text-center text-sm md:text-base font-bold text-slate-200 tracking-wide font-['Rajdhani',sans-serif] line-clamp-1 group-hover:text-orange-300 transition-colors">
           {employee.name}
         </h4>
+
 
         <div className="flex flex-col items-center gap-0.5 mt-0.5">
           <span className="text-[11px] font-mono text-slate-400">

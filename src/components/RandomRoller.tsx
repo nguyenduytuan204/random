@@ -301,28 +301,28 @@ export const RandomRoller = forwardRef<RandomRollerHandle, RandomRollerProps>(({
                 className={`relative shrink-0 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-between border-2 transition-transform duration-300 ${
                   isWinner 
                     ? `scale-110 z-20 border-white shadow-[0_0_40px_rgba(255,255,255,0.8)] bg-slate-900` 
-                    : `border-slate-800/80 bg-slate-950/70`
+                    : `border-orange-500/80 bg-gradient-to-b from-orange-950/40 via-slate-950/80 to-slate-950/90 shadow-[0_0_15px_rgba(249,115,22,0.35)]`
                 }`}
                 style={{
                   width: `${cardWidth}px`,
                   height: window.innerWidth < 640 ? '180px' : '210px',
-                  borderColor: isWinner ? '#ffffff' : rarity.accent,
+                  borderColor: isWinner ? '#ffffff' : '#f97316',
                   boxShadow: isWinner 
-                    ? `0 0 30px ${rarity.accent}, 0 0 60px rgba(255,255,255,0.6)` 
-                    : `inset 0 0 15px ${rarity.glow}`,
+                    ? `0 0 30px #f97316, 0 0 60px rgba(255,255,255,0.6)` 
+                    : `0 0 15px rgba(249, 115, 22, 0.35)`,
                 }}
               >
                 {/* Top spacer or status */}
                 <div className="h-1 w-full" />
 
-
                 {/* Avatar */}
                 <div 
                   className={`w-16 h-16 md:w-20 md:h-20 rounded-full p-[2px] transition-all ${
-                    isWinner ? 'scale-105 ring-4 ring-white' : ''
+                    isWinner ? 'scale-105 ring-4 ring-white' : 'ring-2 ring-orange-500/60'
                   }`}
-                  style={{ background: `linear-gradient(135deg, ${rarity.accent}, #0f172a)` }}
+                  style={{ background: `linear-gradient(135deg, #f97316, #ea580c, #0f172a)` }}
                 >
+
                   <img
                     src={card.avatar}
                     alt={card.name}
